@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>botFiltrarExcel</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        ul{
+            display: flex;
+            flex-direction: column;
+            
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        form input{
+            margin: auto;
+        }
+        form button{
+            width: 70px;
+            padding: 10px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Filtrar planilha</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".xlsx" required>
+        <button type="submit">Enviar</button>
+    </form>
+    {% if linhas %}
+    <h1>Resultado</h1>
+        <ul>
+            {% for linha in linhas %}
+            <li>{{linha}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
